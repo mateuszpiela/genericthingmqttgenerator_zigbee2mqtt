@@ -10,11 +10,11 @@
 2. mvn install
 
 # Required args
-bridgeuid - Bridge MQTT UID from OpenHAB
+bridgeuid - Bridge MQTT UID from OpenHAB<br>
 host - MQTT Server Host
 
 # Used libraries
-Eclipse PAHO for MQTT Client 
-Jackson for JSON Processing
-SnakeYAML for YAML Generating
+Eclipse PAHO for MQTT Client<br>
+Jackson for JSON Processing<br>
+SnakeYAML for YAML Generating<br>
 Apache Commons CLI for CLI Arguments Parsing
