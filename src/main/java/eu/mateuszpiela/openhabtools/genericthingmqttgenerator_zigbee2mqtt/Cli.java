@@ -12,6 +12,10 @@ import eu.mateuszpiela.openhabtools.genericthingmqttgenerator_zigbee2mqtt.classe
 public class Cli {
     private CommandLine cmd;
 
+    /**
+     * Command Line Options
+     * @return Options
+     */
     private Options CliOptions() {
         Options options = new Options();
         
@@ -27,18 +31,25 @@ public class Cli {
         return options;
     }
 
+    /**
+     * Command Line Parser
+     * @param args
+     * @throws ParseException
+     */
     public void CliParser(String args[]) throws ParseException {
         Options options = CliOptions();
 
         CommandLineParser parser = new DefaultParser();
         cmd = parser.parse(options, args);
 
+        // Check if the parameter is help and if it is display Help
         if(cmd.hasOption("?")){
             HelpFormatter formatter = new HelpFormatter();
             formatter.printHelp("oh3-genericmqttgenerator", options);    
             System.exit(0);
         }
 
+        // Don't allow empty arguments
         if(args.length == 0) {
            System.out.println("The args are empty");
            System.exit(0);
@@ -47,7 +58,13 @@ public class Cli {
     }
 
 
+    /**
+     * Create Config object and set properties from CLI Arguments
+     *
+     * @return Config
+     */
     public Config getConfigFromArgs() {
+        // Check if required options are setted
         if(!cmd.hasOption("h") || !cmd.hasOption("b")) {
             System.out.println("Missing required options host or bridgeuid");
             System.exit(0);
@@ -69,10 +86,7 @@ public class Cli {
         config.setPassword(password);
         config.setBridgeUid(bridgeuid);
         config.setIsLegacyAvailabilityEnabled(legacyAvailable);
-
-        if(!basetopic.isEmpty()) {
-            config.setBaseName(basetopic);
-        }
+        config.setBaseName(basetopic);
 
         return config;
     }

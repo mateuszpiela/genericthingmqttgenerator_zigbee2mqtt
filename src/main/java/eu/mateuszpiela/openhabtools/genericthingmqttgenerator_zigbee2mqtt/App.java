@@ -22,6 +22,11 @@ import eu.mateuszpiela.openhabtools.genericthingmqttgenerator_zigbee2mqtt.entiti
  */
 public class App 
 {
+    /**
+     * Main application entrypoint
+     * @param args Application arguments
+     * @throws ParseException
+     */
     public static void main( String[] args ) throws ParseException
     {
 

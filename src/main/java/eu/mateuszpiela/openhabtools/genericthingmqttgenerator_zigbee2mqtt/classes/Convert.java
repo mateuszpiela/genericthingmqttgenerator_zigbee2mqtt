@@ -16,12 +16,23 @@ public class Convert {
     private Device[] devices;
     private Config config;
 
+    /**
+     * Constructor Convert Class
+     * 
+     * @param devices
+     * @param config
+     */
     public Convert(Device[] devices, Config config) {
         this.devices = devices;
         this.config = config;
     }
 
-
+    /**
+     * Get OpenHAB Thing Entity from Device entity (Zigbee2Mqtt)
+     * 
+     * @see Device
+     * @return List<Thing>
+     */
     public List<Thing> getOpenHabThings() {
         List<Thing> things = new ArrayList<>();
 
@@ -54,6 +65,12 @@ public class Convert {
         return things;
     }
 
+    /**
+     * Convert from expose (zigbee2mqtt) to OpenHAB Channels
+     * 
+     * @param device
+     * @return
+     */
     private List<Channel> getChannels(Device device) {
         List<Channel> channels = new ArrayList<>();
         ChannelTypeMapper channelTypeMapper = new ChannelTypeMapper();
@@ -82,6 +99,14 @@ public class Convert {
         return channels;
     }
 
+    /**
+     * Generate OpenHAB channel configuration from expose (zigbee2mqtt)
+     * 
+     * @param device
+     * @param expose
+     * @param config
+     * @return
+     */
     private ChannelConfiguration getChannelConfiguration(Device device, Expose expose,Config config) {
         ChannelConfiguration channelConfiguration = new ChannelConfiguration();
         channelConfiguration.setStateTopic(config.getBaseName() + "/" + device.getFriendlyName() + "/" + expose.getProperty());
@@ -110,6 +135,13 @@ public class Convert {
         return channelConfiguration;
     }
 
+    /**
+     * Generate thing configuration
+     * 
+     * @param device
+     * @param config
+     * @return
+     */
     private ThingConfiguration generateThingConfig(Device device, Config config) {
         ThingConfiguration thingConfiguration = new ThingConfiguration();
         

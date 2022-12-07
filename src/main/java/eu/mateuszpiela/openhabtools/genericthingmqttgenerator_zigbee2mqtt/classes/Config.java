@@ -3,6 +3,9 @@ package eu.mateuszpiela.openhabtools.genericthingmqttgenerator_zigbee2mqtt.class
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Config entity
+ */
 @Getter
 @Setter
 public class Config {

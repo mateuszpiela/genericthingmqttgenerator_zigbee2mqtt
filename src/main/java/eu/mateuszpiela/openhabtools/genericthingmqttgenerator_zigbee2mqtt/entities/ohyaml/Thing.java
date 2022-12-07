@@ -7,6 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * OpenHAB UI Thing YAML
+ */
 @Getter
 @Setter
 public class Thing {

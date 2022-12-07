@@ -8,6 +8,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.mateuszpiela.openhabtools.genericthingmqttgenerator_zigbee2mqtt.entities.mqtt_devices.Device;
 
 public class Json {
+    /**
+     * Parse Zigbee2Mqtt Devices 
+     * 
+     * @param devicesJsonString
+     * @return
+     * @throws JsonMappingException
+     * @throws JsonProcessingException
+     */
     public Device[] parseZ2MDevices(String devicesJsonString) throws JsonMappingException, JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setSerializationInclusion(Include.NON_NULL);

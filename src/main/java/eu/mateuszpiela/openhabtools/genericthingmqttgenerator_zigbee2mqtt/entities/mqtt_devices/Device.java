@@ -8,6 +8,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Device entity from Zigbee2Mqtt
+ * 
+ * @see https://www.zigbee2mqtt.io/guide/usage/mqtt_topics_and_messages.html#zigbee2mqtt-bridge-devices
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
